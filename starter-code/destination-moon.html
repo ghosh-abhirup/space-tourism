@@ -15,7 +15,10 @@
 
   <!-- Custom css -->
   <link rel="stylesheet" href="index.css">
+
+  <!-- Custom js -->
   <script src="index.js" defer></script>
+  <script src="tabs.js" defer></script>
 
   <title>Frontend Mentor | Space tourism website</title>
 </head>
@@ -31,8 +34,9 @@
       <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
         <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="index.html"><span>01</span>Home</a>
         <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2"
-            href="destination.html"><span>02</span>Destination</a>
-        <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="crew.html"><span>03</span>Crew</a>
+            href="destination-moon.html"><span>02</span>Destination</a>
+        <li><a class="ff-sans-cond uppercase text-white letter-spacing-2"
+            href="crew-commander.html"><span>03</span>Crew</a>
         <li><a class="ff-sans-cond uppercase text-white letter-spacing-2"
             href="technology.html"><span>04</span>Technology</a>
       </ul>
@@ -42,16 +46,25 @@
   <main id="main" class="grid-container grid-container--destination flow">
 
     <h2 class="numbered-title"><span>01 </span>Pick your destination</h2>
-    <img src="assets/destination/image-moon.png" alt="the moon">
 
-    <div class="tab-list underline-indicators flex">
-      <button aria-selected="true" class="uppercase ff-sans-cond text-light bg-dark letter-spacing-2">Moon</button>
-      <button aria-selected="false" class="uppercase ff-sans-cond text-light bg-dark letter-spacing-2">Mars</button>
-      <button aria-selected="false" class="uppercase ff-sans-cond text-light bg-dark letter-spacing-2">Europa</button>
-      <button aria-selected="false" class="uppercase ff-sans-cond text-light bg-dark letter-spacing-2">Titan</button>
+    <img src="assets/destination/image-moon.png" role="planet-img" alt="the moon" style="display: block;">
+    <img src="assets/destination/image-mars.png" role="planet-img" alt="the mars" style="display: none;">
+    <img src="assets/destination/image-europa.png" role="planet-img" alt="the europa" style="display: none;">
+    <img src="assets/destination/image-titan.png" role="planet-img" alt="the titan" style="display: none;">
+
+    <div class="tab-list underline-indicators flex" role="tablist" aria-label="destination list">
+      <button aria-selected="true" role="tab" aria-controls="moon-tab"
+        class="uppercase ff-sans-cond text-white letter-spacing-2">Moon</button>
+      <button aria-selected="false" role="tab" aria-controls="mars-tab"
+        class="uppercase ff-sans-cond text-white letter-spacing-2">Mars</button>
+      <button aria-selected="false" role="tab" aria-controls="europa-tab"
+        class="uppercase ff-sans-cond text-white letter-spacing-2">Europa</button>
+      <button aria-selected="false" role="tab" aria-controls="titan-tab"
+        class="uppercase ff-sans-cond text-white letter-spacing-2">Titan</button>
     </div>
 
-    <article class="destination-info">
+    <!-- Moon -->
+    <article role="content" class="destination-info">
       <p class="ff-serif uppercase fs-800">Moon</p>
 
       <p class="text-light">See our planet as you’ve never seen it before. A perfect relaxing trip away to help
@@ -69,6 +82,68 @@
         </div>
       </div>
     </article>
+
+    <!-- Mars -->
+    <article role="content" hidden class="destination-info">
+      <p class="ff-serif uppercase fs-800">Mars</p>
+
+      <p class="text-light">Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons,
+        the tallest planetary mountain in our solar system. It’s two and a half times
+        the size of Everest!</p>
+
+      <div class="destinatin-meta flex">
+        <div>
+          <p class="ff-sans-cond fs-200 uppercase letter-spacing-3 text-light">Avg. Distance</p>
+          <p class="ff-serif fs-500 uppercase">225 mil. km</p>
+        </div>
+        <div>
+          <p class="ff-sans-cond fs-200 uppercase letter-spacing-3 text-light">Est. Travel Time</p>
+          <p class="ff-serif fs-500 uppercase">9 months</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Europa -->
+    <article role="content" hidden class="destination-info">
+      <p class="ff-serif uppercase fs-800">Europa</p>
+
+      <p class="text-light">The smallest of the four Galilean moons orbiting Jupiter, Europa is a
+        winter lover’s dream. With an icy surface, it’s perfect for a bit of
+        ice skating, curling, hockey, or simple relaxation in your snug
+        wintery cabin.</p>
+
+      <div class="destinatin-meta flex">
+        <div>
+          <p class="ff-sans-cond fs-200 uppercase letter-spacing-3 text-light">Avg. Distance</p>
+          <p class="ff-serif fs-500 uppercase">628 mil. km</p>
+        </div>
+        <div>
+          <p class="ff-sans-cond fs-200 uppercase letter-spacing-3 text-light">Est. Travel Time</p>
+          <p class="ff-serif fs-500 uppercase">3 years</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Titan -->
+    <article role="content" hidden class="destination-info">
+      <p class="ff-serif uppercase fs-800">Titan</p>
+
+      <p class="text-light">The only moon known to have a dense atmosphere other than Earth, Titan
+        is a home away from home (just a few hundred degrees colder!). As a
+        bonus, you get striking views of the Rings of Saturn.</p>
+
+      <div class="destinatin-meta flex">
+        <div>
+          <p class="ff-sans-cond fs-200 uppercase letter-spacing-3 text-light">Avg. Distance</p>
+          <p class="ff-serif fs-500 uppercase">1.6 bil. km</p>
+        </div>
+        <div>
+          <p class="ff-sans-cond fs-200 uppercase letter-spacing-3 text-light">Est. Travel Time</p>
+          <p class="ff-serif fs-500 uppercase">7 years</p>
+        </div>
+      </div>
+    </article>
+
   </main>
 
 </body>
