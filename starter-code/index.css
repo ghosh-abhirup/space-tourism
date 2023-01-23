@@ -477,6 +477,25 @@ body{
     }
 }
 
+.technology{
+    background-image: url(./assets/technology/background-technology-mobile.jpg);
+    
+}
+
+
+@media (min-width: 35rem) {
+    .technology{
+        background-position: center center;
+        background-image: url(./assets/technology/background-technology-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .technology{
+        background-image: url(./assets/technology/background-technology-desktop.jpg);
+    }
+}
+
 /* ----------------------------------- */
 /* Page Layout */
 /* ----------------------------------- */
@@ -565,6 +584,37 @@ body{
     opacity: 0.5;
 }
 
+/* Tech page layout */
+
+.grid-container--tech{
+    --flow-space: 2rem;
+    grid-template-areas: 
+        'title'
+        'image'
+        'content';
+}
+
+.numbered-title {
+    grid-area: title;
+}
+
+.grid-container--tech > img {
+    grid-area: image;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.grid-container--tech > .content {
+    grid-area: content;
+}
+
+.content{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 @media (min-width: 35em) {
     .destinatin-meta{
         flex-direction: row;
@@ -586,6 +636,7 @@ body{
             'dots'
             'image';
     }
+
 }
 
 
@@ -620,7 +671,8 @@ body{
         '. image content .';
     }
 
-    .grid-container--destination > img {
+    .grid-container--destination > img,
+    .grid-container--crew > img {
         max-width: 90%;
     }
 
@@ -641,18 +693,42 @@ body{
         '. dots image .';
     }
 
-    .grid-container--crew > img {
-        max-width: 90%;
+    /* Tech page layout */
+
+    .grid-container--tech{
+        --flow-space: 2rem;
+        grid-template-areas: 
+            '. title title .'
+            '. content image .';
     }
 
-}
+    .content{
+        flex-direction: row;
+        --gap:3rem;
+    }
 
-/* Image shift holder */
+    .number-list{
+        flex-direction: column;
+        justify-content: space-around;
+    }
 
-body main img > [aria-shown = "true"]{
-    display: block;
-}
+    .number-list > *{
+        padding: 0 1.5rem;
+    }
+    .grid-container--tech > img{
+        
+        transform: translateX(21%);
+    }
 
-body main img > [aria-shown = "false"]{
-    display: none;
+    .grid-container--tech > img[src*="assets/technology/image-launch-vehicle-landscape.jpg"]{
+        content: url("assets/technology/image-launch-vehicle-portrait.jpg");
+    }
+
+    .grid-container--tech > img[src*="assets/technology/image-spaceport-landscape.jpg"]{
+        content: url("assets/technology/image-spaceport-portrait.jpg");
+    }
+
+    .grid-container--tech > img[src*="assets/technology/image-space-capsule-landscape.jpg"]{
+        content: url("assets/technology/image-space-capsule-portrait.jpg");
+    }
 }
